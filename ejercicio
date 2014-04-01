@@ -1,0 +1,15 @@
+Implementar com en el ejercicio de la Libreria un sistema para registrar libros. En lugar de libros usar otra base de datos. El sistema insertará los datos en una BD y no en un vector.
+
+Usa las interfaces y la clase MYsql .
+
+juego:
+	id
+	titulo
+	titulo original NULL
+	autor (FOREIGN)
+	descripcion
+	año
+	genero (FOREIGN)
+
+autor:
+	
