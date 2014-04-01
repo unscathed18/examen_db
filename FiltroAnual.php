@@ -2,15 +2,15 @@
 require_once 'CriterioFiltro.php';
 
 class FiltroAnual implements CriterioFiltro{ 
-	private $_año;
+	private $_year;
 
-	public function __construct($año) { 
-		$this->_año = $año;
+	public function __construct($year) { 
+		$this->_year = $year;
 	} 
 	
-	public function esSeleccionable(Libro $libro) { 
+	public function esSeleccionable(Juego $juego) { 
 		$encontrado = false; 
-		if($libro->getAño() == $this->_año){
+		if($libro->getYear() == $this->_year){
 			$encontrado = true; 
 		}
 		return $encontrado; 

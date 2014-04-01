@@ -1,18 +1,25 @@
 <?php 
 require_once 'Juego.php'; 
-//require_once 'CriterioFiltro.php'; 
+require_once 'CriterioFiltro.php'; 
 
 class TiendaVideojuegos { 
 	private $_listaJuegos = array(); 
 	
 	public function busqueda(CriterioFiltro $filtro) { 
-		$_listaJuegos = array();
+		/* Esta funcion se podria realizar de 2 maneras: 
+			1 - Leer cada fila de la tabla y pasarlo a un objeto. 1 fila - 1 objeto.
+			2 - Hacer una consulta SQL que me devuelva 
+		*/
+		/*$_listaJuegos = array();
 		foreach( $this->_listaJuegos as $juego){ 
 			if( $filtro->esSeleccionable($juego)){ 
 				$juegosRetorno[]= $juego; 
 			}
-		} 
-			return $juegosRetorno; 
+		}*/
+		$listaJuegos = array();
+
+		$filtro->getResultados(); // Hace llamada a la BD, devuelve una array de juegos.
+		return $juegosRetorno; 
 	}
 	
 	public function addJuego(Juego $juego) { 
