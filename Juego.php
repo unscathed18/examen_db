@@ -13,7 +13,6 @@ class Juego{
 	private $_genero;
 
 	// Methods
-	
 	public function __construct($id, $titulo, $genero, $titulo_ori="", $descripcion = "", $year = -1, $empresa = null) { 
 		$this->_id = $id;
 		$this->_titulo = $titulo;
@@ -25,7 +24,6 @@ class Juego{
 	}
 
 	//Setters
-	
 	public function setTitulo($titulo) {
 		$this->_titulo = $titulo;
 	}
@@ -51,22 +49,34 @@ class Juego{
 	}
 
 	//Getters
-	
 	public function getTitulo() {
 		return $this->_titulo;
 	} 
-	public function getTema() { 
-		return $this->_tema; 
+	public function getTitulo_ori() { 
+		return $this->_titulo_ori; 
 	}
-	public function getAño() { 
-		return $this->_año;
+	public function getYear() { 
+		return $this->_year;
 	}
-	public function getAutores() { 
-		return $this->_colAutores;
+
+	public function getEmpresa(){
+		return $this->_empresa;
+	}
+
+	public function getGenero(){
+		return $this->_genero;
+	}
+
+	public function getDescripcion(){
+		return $this->_descripcion;
+	}
+
+	public function getID(){
+		return $this->_id;
 	}
 
 	// Override
 	public function __toString() { 
-		return $this->_titulo;
+		return $this->_titulo + " -- Genero: " + $this->_genero;
 	}
 }
