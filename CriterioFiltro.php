@@ -1,1 +1,1 @@
-<?phprequire_once('manejadorbasededatosinterface.php');require_once('Persistencia/')interface CriterioFiltro{	public function esSeleccionable(Juego $juego);	public function getResultados();	public function getCondicion();}
+<?phpinterface CriterioFiltro{	public function esSeleccionable(Juego $juego);	public function getResultados();	public function getCondicion();}

@@ -1,4 +1,5 @@
 <?php 
+
 class Empresa { 
 	private $_id;
 	private $_nombre;

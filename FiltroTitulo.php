@@ -1,8 +1,11 @@
 <?php 
 require_once 'CriterioFiltro.php';
+require_once 'db_config.php';
 
 class FiltroTitulo implements CriterioFiltro{ 
 	private $_titulo;
+	private $_sql = null;
+	private $resultados = array();
 
 	public function __construct($titulo) { 
 		$this->_titulo = $titulo;
@@ -18,14 +21,19 @@ class FiltroTitulo implements CriterioFiltro{
 	}
 
 	public function getResultados(){
-		$lista_juegos = array();
+		$resultados = 
 
-
+		//Primero obtenemos las rows que coinciden con el criterio.
+		if(!$this->_sql){
+			$consulta = new Sql();
+			$consulta->addTable("juegos");
+			$consulta->addWhere($this->getCondicion());
+		}
 
 		return $lista_juegos;
 	}
 
 	public function getCondicion(){
-		return " ";
+		return "titulo = '".$this->_titulo."'";
 	}
 }

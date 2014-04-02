@@ -1,4 +1,5 @@
 <?php 
+require_once 'db_config.php';
 require_once 'TiendaVideojuegos.php'; 
 require_once 'FiltroAnual.php'; 
 require_once 'FiltroAutor.php'; 

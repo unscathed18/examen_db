@@ -16,7 +16,7 @@ class MySQL implements ManejadorBaseDeDatosInterface{
 		$this->_usuario = 'root';
 		$this->_clave = '';
 		$this->_servidor = 'localhost';
-		$this->_base = 'tarea5';
+		$this->_base = 'tiendavideojuegos';
 		
 		$this->_conexion = mysql_connect($this->_servidor, $this->_usuario, $this->_clave);
 		

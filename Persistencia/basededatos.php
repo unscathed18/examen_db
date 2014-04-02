@@ -13,9 +13,6 @@ class BaseDeDatos{
 	public function __construct(ManejadorBaseDeDatosInterface $manejador){
 		$this->_manejador = $manejador;
 	}
-	
-	public function BaseDeDatos(ManejadorBaseDedatosInterface $manejador){
-	}
 
 	public function ejecutar(Sql $sql){
 		$this->_manejador->conectar();

@@ -6,10 +6,10 @@ juego:
 	id
 	titulo
 	titulo original NULL
-	autor (FOREIGN)
-	descripcion
-	año
-	genero (FOREIGN)
+	descripcion NULL
+	year NULL
+	empresa_id (FOREIGN) NULL
+	genero_id (FOREIGN)
 
 autor:
 	
