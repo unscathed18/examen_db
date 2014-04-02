@@ -10,8 +10,8 @@ abstract class Index {
 	public function run() { 
 		$tiendaVideojuegos = new TiendaVideojuegos(); 
 		/* * Carga de autores */ 
-		$libreria->addAutorLibro('Introduccion a PHP', 'Enrique', 'Place'); 
-		/* * Búsqueda de libros */ 
+		/*$libreria->addAutorLibro('Introduccion a PHP', 'Enrique', 'Place'); 
+		
 		
 		$libros2008 = $libreria->busqueda(new FiltroAnual(2008)); 
 		$librosAutor = $libreria->busqueda(new FiltroAutor('Enrique','Place'));
@@ -21,7 +21,8 @@ abstract class Index {
 		echo self::_librosEncontrados2Html("Libros del 2008: ",$libros2008);
 		echo self::_librosEncontrados2Html("Libros del Autor: ",$librosAutor);
 		echo self::_librosEncontrados2Html("Libros del Tema: ",$librosTema); 
-		echo self::_librosEncontrados2Html("Libros del Titulo: ",$librosTitulo);
+		echo self::_librosEncontrados2Html("Libros del Titulo: ",$librosTitulo);*/
+		echo "bien";
 	} 
 	private function _librosEncontrados2Html($titulo, $array) 
 	{ 

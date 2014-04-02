@@ -25,6 +25,10 @@ class Sql{
 		}
 		return $txt;
 	}
+	public function addSelect($select){
+		$this->_colSelect[] = $select;
+	}
+	
 	public function __toString(){
 		
 		return $this->_generar();

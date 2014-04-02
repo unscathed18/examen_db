@@ -5,7 +5,7 @@ require_once 'CriterioFiltro.php';
 class TiendaVideojuegos { 
 	private $_listaJuegos = array(); 
 	
-	public function busqueda(CriterioFiltro $filtro) { 
+	public function busqueda(CriterioFiltro $filtro = null) { 
 		/* Esta funcion se podria realizar de 2 maneras: 
 			1 - Leer cada fila de la tabla y pasarlo a un objeto. 1 fila - 1 objeto.
 			2 - Hacer una consulta SQL que me devuelva 
@@ -18,8 +18,17 @@ class TiendaVideojuegos {
 		}*/
 		$listaJuegos = array();
 
-		$filtro->getResultados(); // Hace llamada a la BD, devuelve una array de juegos.
+		if($filtro == null){
+			$listaJuegos = $this->getListado();
+		}else{
+			$listaJuegos = $filtro->getResultados();
+		}
+		
 		return $juegosRetorno; 
+	}
+
+	public function getListado(){
+		return 
 	}
 	
 	public function addJuego(Juego $juego) { 
