@@ -1,6 +1,7 @@
 <?php 
 require_once 'Juego.php'; 
-require_once 'CriterioFiltro.php'; 
+require_once 'CriterioFiltro.php';
+require_once 'db_config.php';
 
 class TiendaVideojuegos { 
 	private $_listaJuegos = array(); 
@@ -23,16 +24,21 @@ class TiendaVideojuegos {
 		}else{
 			$listaJuegos = $filtro->getResultados();
 		}
+
+		if(empty($listaJuegos)){
+			return "adasd";
+		}
 		
-		return $juegosRetorno; 
+		return $listaJuegos; 
 	}
 
 	public function getListado(){
-		return 
+		return "Get Listado por implementar";
 	}
 	
-	public function addJuego(Juego $juego) { 
-		$this->_listaJuegos[] = $juego;
+	public function addJuego($sql) { 
+		global $bd;
+		$bd->ejecutar($sql);
 	}
 
 	public function getJuego($index){
@@ -41,4 +47,5 @@ class TiendaVideojuegos {
 		}
 		return $this->_listaJuegos[$index];
 	}
+
 }

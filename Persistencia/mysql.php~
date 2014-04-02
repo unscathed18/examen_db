@@ -1,7 +1,7 @@
 <?php
 
 namespace Persistencia;
-require_once('manejadorbasededatosinterface.php');
+require_once('/../manejadorbasededatosinterface.php');
 
 use \ManejadorBaseDeDatosInterface;
 
@@ -35,11 +35,6 @@ class MySQL implements ManejadorBaseDeDatosInterface{
 		}
 		
 		return $todo;
-	}
-
-	public function insertarDatos(Sql $sql){
-		$resultado = mysql_query($sql, $this->_conexion);
-		return $resultado;
 	}
 
 	

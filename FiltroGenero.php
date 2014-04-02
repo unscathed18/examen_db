@@ -15,4 +15,10 @@ class FiltroGenero implements CriterioFiltro{
 		}
 		return $encontrado; 
 	}
+	public function getResultados(){
+
+	}
+	public function getCondicion(){
+		
+	}
 }

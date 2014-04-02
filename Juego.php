@@ -13,7 +13,7 @@ class Juego{
 	private $_genero;
 
 	// Methods
-	public function __construct($id, $titulo, $genero, $titulo_ori="", $descripcion = "", $year = -1, $empresa = null) { 
+	public function __construct($id, $titulo, $genero, $titulo_ori="", $descripcion = "", $year = -1, $empresa = "") { 
 		$this->_id = $id;
 		$this->_titulo = $titulo;
 		$this->_titulo_ori = $titulo_ori;
@@ -77,6 +77,24 @@ class Juego{
 
 	// Override
 	public function __toString() { 
-		return $this->_titulo + " -- Genero: " + $this->_genero;
+		$txt = "";
+		$txt .= $this->_titulo." -- Genero: ".$this->_genero;
+		if($this->_titulo_ori != ""){
+			$txt .= " -- Titulo original ".$this->_titulo_ori;
+		}
+
+		if($this->_descripcion != ""){
+			$txt .= " -- Descripci&oacute;n ".$this->_descripcion;
+		}
+
+		if($this->_year != -1){
+			$txt .= " -- a&ntilde;o ".$this->_year;
+		}
+
+		if($this->_empresa != ""){
+			$txt .= " -- empresa: ". $this->_empresa;
+		}
+
+		return $txt;
 	}
 }

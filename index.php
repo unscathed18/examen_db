@@ -1,33 +1,46 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+header('Content-Type: text/html; charset=UTF-8');
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Examen DB</title>
+<meta charset="utf-8"/>
+</head>
+<body>
+
+<?php
+
 require_once 'db_config.php';
 require_once 'TiendaVideojuegos.php'; 
 require_once 'FiltroAnual.php'; 
-require_once 'FiltroAutor.php'; 
-require_once 'FiltroTema.php'; 
+require_once 'FiltroEmpresa.php'; 
+require_once 'FiltroGenero.php';
 require_once 'FiltroTitulo.php'; 
 
 abstract class Index { 
 	public function run() { 
-		$tiendaVideojuegos = new TiendaVideojuegos(); 
-		/* * Carga de autores */ 
-		/*$libreria->addAutorLibro('Introduccion a PHP', 'Enrique', 'Place'); 
 		
-		
-		$libros2008 = $libreria->busqueda(new FiltroAnual(2008)); 
-		$librosAutor = $libreria->busqueda(new FiltroAutor('Enrique','Place'));
-		$librosTema = $libreria->busqueda(new FiltroTema('PHP')); 
-		$librosTitulo = $libreria->busqueda(new FiltroTitulo('Java')); 
+		$tiendaVideoJuegos = new TiendaVideojuegos();
+		$juegos = $tiendaVideoJuegos->busqueda(new FiltroTitulo("Phoenix Wright: Ace Attorney"));
 
-		echo self::_librosEncontrados2Html("Libros del 2008: ",$libros2008);
-		echo self::_librosEncontrados2Html("Libros del Autor: ",$librosAutor);
-		echo self::_librosEncontrados2Html("Libros del Tema: ",$librosTema); 
-		echo self::_librosEncontrados2Html("Libros del Titulo: ",$librosTitulo);*/
-		echo "bien";
-	} 
-	private function _librosEncontrados2Html($titulo, $array) 
-	{ 
-		return $titulo.': ' . implode(', ', $array).'<br><br>';
+		foreach($juegos as $juego){
+			//echo $juego."<br/>";
+		}
+
+		$sql = new Persistencia\Sql();
+		$sql->insertarJuego(new Juego(-1,"Metal Gear Solid", "accion","METARU GIAA", "MUY BUEN JUEGO", 1993, "konami"));
+		$tiendaVideoJuegos->addJuego($sql);
+
+		
+		echo $sql;
 	}
 }
 
 Index::run();
+?>
+</body>
+</html>

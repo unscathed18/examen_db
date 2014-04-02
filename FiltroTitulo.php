@@ -23,8 +23,8 @@ class FiltroTitulo implements CriterioFiltro{
 	public function getResultados(){
 		//Primero obtenemos las rows que coinciden con el criterio.
 		if(empty($this->_resultados)){
-			$consulta = new Sql();
-			$consulta->addTable("juegos");
+			$consulta = new Persistencia\Sql();
+			$consulta->addTable("juego");
 			$consulta->addWhere($this->getCondicion());
 			$consulta->addSelect("id");
 			$consulta->addSelect("titulo");
@@ -41,7 +41,12 @@ class FiltroTitulo implements CriterioFiltro{
 
 				FROM juego WHERE titulo = 'Phoenix Wright: Ace Attorney'
 			*/
-			$this->_resultados = $consulta;
+
+			global $bd;
+			$arr = $bd->ejecutar($consulta);
+			foreach($arr as $row){
+				$this->_resultados[] = $this->ToJuego($row);
+			}
 		}
 
 		return $this->_resultados;
@@ -49,5 +54,37 @@ class FiltroTitulo implements CriterioFiltro{
 
 	public function getCondicion(){
 		return "titulo = '".$this->_titulo."'";
+	}
+
+	public function ToJuego($row){
+		$titulo_ori = "";
+		$descripcion = "";
+		$year = -1;
+		$empresa = "";
+
+		$id = $row['id'];
+		$titulo = $row['titulo'];
+		$genero = $row['genero'];
+
+
+		$titulo = $row['titulo'];
+		if($row['titulo_ori'] > ''){ // NULL or empty
+			$titulo_ori = $row['titulo_ori'];
+		}
+
+		if($row['descripcion'] > ''){ // NULL or empty
+			$descripcion = $row['descripcion'];
+		}
+
+		if($row['year'] > ''){ // NULL or empty
+			$year = $row['year'];
+		}
+
+		if($row['empresa'] > ''){ // NULL or empty
+			$empresa = $row['empresa'];
+		}
+
+		$juego = new Juego($id, $titulo, $genero, $titulo_ori, $descripcion, $year, $empresa);
+		return $juego; 
 	}
 }

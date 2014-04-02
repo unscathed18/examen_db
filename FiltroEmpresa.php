@@ -10,9 +10,15 @@ class FiltroEmpresa implements CriterioFiltro{
 	
 	public function esSeleccionable(Juego $juego) { 
 		$encontrado = false; 
-		if(this->_nombre == $juego->getEmpresa->getNombre()){
+		/*if(this->_nombre == $juego->getEmpresa()->getNombre()){
 			$encontrado = true;
-		}
+		}*/
 		return $encontrado; 
+	}
+	public function getResultados(){
+
+	}
+	public function getCondicion(){
+		
 	}
 }
