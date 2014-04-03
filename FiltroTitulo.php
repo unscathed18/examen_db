@@ -31,8 +31,8 @@ class FiltroTitulo implements CriterioFiltro{
 			$consulta->addSelect("titulo_ori");
 			$consulta->addSelect("descripcion");
 			$consulta->addSelect("year");
-			$consulta->addSelect("(SELECT nombre FROM empresa, juego WHERE empresa.id = juego.empresa_id ) AS empresa");
-			$consulta->addSelect("(SELECT nombre FROM genero, juego WHERE genero.id = juego.genero_id ) AS genero");
+			$consulta->addSelect("empresa");
+			$consulta->addSelect("genero");
 
 			/*
 				SELECT id, titulo, titulo_ori, descripcion, year,

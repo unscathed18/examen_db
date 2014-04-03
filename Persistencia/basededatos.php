@@ -18,12 +18,12 @@ class BaseDeDatos{
 		$datos="";
 		$this->_manejador->conectar();
 		
-		if($sql->isInsert()){
-			$datos = $this->_manejador->insertarDatos($sql);
-		}else{
+		//if($sql->isInsert()){
+		//	$datos = $this->_manejador->insertarDatos($sql);
+		//}else{
 			$datos = $this->_manejador->traerDatos($sql);		
 			$this->_manejador->desconectar();
-		}
+		//}
 		
 		return $datos;
 	}

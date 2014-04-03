@@ -27,7 +27,7 @@ class MySQL implements ManejadorBaseDeDatosInterface{
 		mysql_close($this->_conexion);
 	}
 	public function traerDatos(Sql $sql){
-		//echo $sql;
+		//echo $sql."<br/><br/>";
 		$resultado = mysql_query($sql,$this->_conexion);
 		$todo = array();
 		while($fila = mysql_fetch_array($resultado)){

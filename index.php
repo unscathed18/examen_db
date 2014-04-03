@@ -25,18 +25,44 @@ abstract class Index {
 	public function run() { 
 		
 		$tiendaVideoJuegos = new TiendaVideojuegos();
-		$juegos = $tiendaVideoJuegos->busqueda(new FiltroTitulo("Phoenix Wright: Ace Attorney"));
+		$juegosTitulo = $tiendaVideoJuegos->busqueda(new FiltroTitulo("Phoenix Wright: Ace Attorney"));
+		$juegosYear = $tiendaVideoJuegos->busqueda(new FiltroAnual(1999));
+		$juegosEmpresa = $tiendaVideoJuegos->busqueda(new FiltroEmpresa('konami'));
+		$juegosGenero = $tiendaVideoJuegos->busqueda(new FiltroGenero('novela visual'));
 
-		foreach($juegos as $juego){
-			//echo $juego."<br/>";
+		echo "<h1>Filtro por titulo</h1>";
+		foreach($juegosTitulo as $juego){
+			
+			echo $juego."<br/><br/>";
 		}
+		echo "<br><br>";
 
-		$sql = new Persistencia\Sql();
+		echo "<h1>Filtro por a&ntilde;o</h1>";
+		foreach($juegosYear as $juego){
+			
+			echo $juego."<br/><br/>";
+		}
+		echo "<br><br>";
+
+		echo "<h1>Filtro por empresa</h1>";
+		foreach($juegosEmpresa as $juego){
+			echo $juego."<br/><br/>";
+		}
+		echo "<br><br>";
+
+		echo "<h1>Filtro por Genero</h1>";
+		foreach($juegosGenero as $juego){
+			echo $juego."<br/><br/>";
+		}
+		echo "<br><br>";
+
+
+
+		//Aniadir juego a BD
+		/*$sql = new Persistencia\Sql();
 		$sql->insertarJuego(new Juego(-1,"Metal Gear Solid", "accion","METARU GIAA", "MUY BUEN JUEGO", 1993, "konami"));
-		$tiendaVideoJuegos->addJuego($sql);
-
+		$tiendaVideoJuegos->addJuego($sql);*/
 		
-		echo $sql;
 	}
 }
 
